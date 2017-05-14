@@ -1,0 +1,13 @@
+{
+    "verbose": true,
+    "ignore": [
+        "src/static/*"
+    ],
+    "ext": "ejs js jsx",
+    "env": { 
+        "NODE_ENV": "development"
+    },
+    "events": {
+        "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+    }
+}

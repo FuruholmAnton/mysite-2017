@@ -1,0 +1,76 @@
+.header {
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    position: absolute;
+
+    &.is-big {
+        height: 160px;
+    }
+
+    &.is-small {
+        height: 60px;
+    }
+}
+
+.header_background {
+    height: 30vw;
+
+    .is-big & {
+
+    }
+
+    .is-small & {
+        transform: scaleY(0.4);
+    }
+}
+
+.header_backButton {
+    display: flex;
+    align-items: center;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 0;
+
+    .page-myhub & {
+        visibility: hidden;
+    }
+}
+
+.header_hamburgerIcon {
+    
+
+    .menu-is-open & {
+        z-index: 12; // shadow is 9 or 11
+
+        path {
+            fill: #fff;
+        }
+    }
+}
+
+.header_hero {
+    width: 100%;
+    text-align: center;
+    // overflow: hidden;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    // padding: 1rem;
+
+    margin-top: 1rem;
+
+    .is-big & {
+        // padding: 3rem 0;
+    }
+}
+
+.header_heading {
+    height: 50px;
+    line-height: 50px;
+    font-weight: 400;
+    padding: 0 1rem;
+}

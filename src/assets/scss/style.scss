@@ -1,0 +1,104 @@
+/* =========================================
+    Master SCSS
+============================================ */
+
+@charset "utf-8";
+
+/*=======================================================================
+=            It's a folder structure, it's a way of thinking            =
+=======================================================================*/
+
+
+
+/*  VENDOR
+============================================================================ */
+
+
+/*  CONFIG
+============================================================================ */
+@import "1-init/variables";
+@import "1-init/font-face";
+
+
+/*  UTILITY
+============================================================================ */
+// Functions
+@import "2-utility/functions/color";
+@import "2-utility/functions/font";
+@import "2-utility/functions/ratio";
+@import "2-utility/functions/strip-unit";
+// Animations
+@import "2-utility/animations/hacks";
+@import "2-utility/animations/bounce";
+@import "2-utility/animations/fade";
+@import "2-utility/animations/scale";
+@import "2-utility/animations/animations";
+// Mixins
+@import "2-utility/mixins/responsive-type";
+// Helpers
+@import "2-utility/helpers";
+
+
+/*  BASE
+============================================================================ */
+@import "3-base/normalize";
+@import "3-base/reset";
+@import "3-base/html";
+@import "3-base/globals";
+@import "3-base/typography";
+
+
+/*  COMPONENTS
+============================================================================ */
+// Buttons
+@import "4-components/buttons/mixins";
+@import "4-components/buttons/extends";
+@import "4-components/buttons/component.buttons";
+// Links
+@import "4-components/links/mixins";
+@import "4-components/links/extends";
+@import "4-components/links/component.links";
+// Headings
+@import "4-components/headings/mixins";
+@import "4-components/headings/extends";
+@import "4-components/headings/component.headings";
+
+// List
+@import "4-components/list/list";
+
+
+
+/* Modules
+============================================================================ */
+// Header
+@import "5-modules/header/mixins";
+@import "5-modules/header/extends";
+@import "5-modules/header/module.header";
+// Footer
+@import "5-modules/footer/mixins";
+@import "5-modules/footer/extends";
+@import "5-modules/footer/module.footer";
+// Menu
+// @import "5-modules/menu/mixins";
+// @import "5-modules/menu/extends";
+@import "5-modules/menu/animations";
+@import "5-modules/menu/module.menu";
+
+@import "5-modules/shadow/animations";
+@import "5-modules/shadow/module.shadow";
+
+@import "5-modules/notification/module.notification";
+
+
+
+/* Layouts
+============================================================================ */
+@import "6-layouts/base";
+
+
+
+/* PAGES - Use only if you must
+============================================================================ */
+@import "7-pages/home";
+@import "7-pages/single-note";
+

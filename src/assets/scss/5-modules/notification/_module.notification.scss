@@ -1,0 +1,22 @@
+/* Handle animation with JS */
+
+.notification {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(100%);
+    visibility: hidden;
+}
+
+.notification_content {
+    background: #333;
+    color: #eee;
+    padding: 1rem 2rem;
+    max-width: 90%;
+    display: inline-block;
+    text-align: left;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(#000, 0.3);
+}

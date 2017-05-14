@@ -1,0 +1,31 @@
+{
+    "notes": {
+        "awdia9adw92ja": {
+            "title": "First note",
+            "tags": {},
+            "content": "",
+            "path": "/",
+            "users": {
+
+            }
+        },
+        "asdw2da2fad2ea": {
+            "title": "Second note",
+            "tags": {},
+            "content": "",
+            "path": "/",
+            "users": {
+
+            }
+        }
+    },
+    "users": {
+        "2xGBmWsNsgfHCVdlbwo9DrnXE243": {
+            "name": "Anton Furuholm",
+            "notes": {
+                "awdia9adw92ja": true,
+                "asdw2da2fad2ea": true
+            }
+        }
+    }
+}

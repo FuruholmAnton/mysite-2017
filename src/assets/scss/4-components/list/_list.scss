@@ -1,0 +1,30 @@
+.c-list {
+
+    &_item {
+        padding: 1.3rem 1rem;
+        background: #fff;
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: color(text);
+        transition: color 0s ease-in-out, background 0.1s ease-in-out;
+
+        & + & {
+            border-top: 1px solid #eee;
+        }
+
+        &:hover {
+            color: #888;
+        }
+
+        &:active {
+            background: #999;
+            color: #eee;
+
+            .page-notes & {
+                background: #7cd092;
+                color: #fff;
+            }
+        }
+    }
+}

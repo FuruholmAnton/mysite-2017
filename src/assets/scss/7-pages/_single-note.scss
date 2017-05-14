@@ -1,0 +1,55 @@
+
+.singleNote {
+    height: 100%;
+    background: #fff;
+    position: relative;
+}
+
+.singleNote_content {
+    height: 100%;
+    position: relative;
+}
+
+.singleNote_title {
+    text-align: center;
+    padding: 1rem 1rem 2rem;
+    color: #7cd092;
+
+    &:empty {
+        &::after {
+            content: 'Title';
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #ddd;
+        }
+    }
+}
+
+.singleNote_textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+    padding: 1rem;
+
+    .placeholder ~ &:empty {
+        &::after {
+            visibility: visible;
+        }
+    }
+    
+}
+
+.placeholder {
+    &::after {
+        content: 'Write something...';
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        visibility: hidden;
+    }
+}

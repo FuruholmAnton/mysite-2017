@@ -1,0 +1,21 @@
+/* Base: HTML Elements
+============================================================================ */
+
+html,
+body,
+#main,
+.base,
+.container {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background: mintcream;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+}

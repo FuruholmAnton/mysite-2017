@@ -11,6 +11,13 @@ import { getData, updateData } from './server/functions';
 import bodyParser from 'body-parser';
 import * as firebase from 'firebase-admin';
 
+/* For Development */
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+let webpack = require('webpack');
+let webpackConfig = require('../webpack.config.js');
+let compiler = webpack(webpackConfig);
+
 import NotFoundPage from './pages/NotFound.jsx';
 
 import serviceAccount from './config/firebase.json';
@@ -59,6 +66,23 @@ app.post('/ajax', (req, res) => {
     console.log('AJAX! Something went wrong');
   }
 });
+
+/* For Development */
+app.use(webpackDevMiddleware(compiler, {
+  hot: true,
+  filename: 'bundle.js',
+  publicPath: '/assets/',
+  stats: {
+    colors: true,
+  },
+  historyApiFallback: true,
+}));
+
+app.use(webpackHotMiddleware(compiler, {
+  log: console.log,
+  path: '/__webpack_hmr',
+  heartbeat: 10 * 1000,
+}));
 
 // universal routing and rendering
 app.get('*', (req, res) => {

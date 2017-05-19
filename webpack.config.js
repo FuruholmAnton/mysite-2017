@@ -1,4 +1,4 @@
-require('webpack');
+const webpack = require('webpack');
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -71,7 +71,11 @@ const loaders = [
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    main: [/* 'babel-polyfill', */'./app-client.js'],
+    main: [
+      /* 'babel-polyfill', */
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      './app-client.js',
+      ],
   },
   output: {
     path: path.resolve(__dirname, './src/static/'),
@@ -97,6 +101,10 @@ module.exports = {
 
     extractSass,
     webpackIsomorphicToolsPlugin,
+
+    // new webpack.optimize.OccurenceOrderPlugin(), // webpack 1.x
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
 
     // new webpack.DefinePlugin({
     //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)

@@ -5,6 +5,11 @@ import globals from 'Core/globals';
 
 import 'wicg-focus-ring';
 
+/* For development */
+if (module.hot) {
+  module.hot.accept();
+}
+
 window.onload = () => {
   let presenceRef = firebase.database().ref('disconnectmessage');
   // Write a string when this client loses connection

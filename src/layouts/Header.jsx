@@ -16,13 +16,6 @@ export default class Header extends React.Component {
     };
   }
 
-  // toggleMenu(e) {
-  //   e.preventDefault();
-  //   console.log('Click');
-  //   vent.emit('menu:toggle');
-  //   vent.emit('shadow:toggle');
-  // }
-
   render() {
     let backBtn;
     if (this.props['back-url']) {

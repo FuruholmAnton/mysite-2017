@@ -4,8 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack --watch",
-    "server": "nodemon src/server.js",
+    "watch": "NODE_ENV=development webpack --watch",
+    "start": "nodemon src/server.js",
     "build": "NODE_ENV=production webpack -p --config ./tools/webpack-production.config.js"
   },
   "babel": {

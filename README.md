@@ -9,8 +9,3 @@ run following in root folder:
 yarn install
 yarn start
 ```
-
-open new terminal tab and run:
-```terminal
-yarn server
-```

@@ -9,7 +9,6 @@ import { match, RouterContext } from 'react-router';
 import routes from './routes';
 import { getData, updateData } from './server/functions';
 import bodyParser from 'body-parser';
-import * as firebase from 'firebase-admin';
 
 /* For Development */
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -19,13 +18,6 @@ let webpackConfig = require('../webpack.config.js');
 let compiler = webpack(webpackConfig);
 
 import NotFoundPage from './pages/NotFound.jsx';
-
-import serviceAccount from './config/firebase.json';
-
-firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
-  databaseURL: 'https://myhub-c0e0c.firebaseio.com/',
-});
 
 // initialize the server and configure support for ejs templates
 const app = new Express();
@@ -38,6 +30,23 @@ app.use(Express.static(path.join(__dirname, 'static')));
 
 /* Makes it possible to read from req.body on AJAX calls */
 app.use(bodyParser.json());
+
+/* For Development */
+app.use(webpackDevMiddleware(compiler, {
+  hot: true,
+  filename: 'bundle.js',
+  publicPath: '/assets/',
+  stats: {
+    colors: true,
+  },
+  historyApiFallback: true,
+}));
+
+app.use(webpackHotMiddleware(compiler, {
+  log: console.log,
+  path: '/__webpack_hmr',
+  heartbeat: 10 * 1000,
+}));
 
 app.post('/ajax', (req, res) => {
   let body = req.body;
@@ -66,23 +75,6 @@ app.post('/ajax', (req, res) => {
     console.log('AJAX! Something went wrong');
   }
 });
-
-/* For Development */
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  filename: 'bundle.js',
-  publicPath: '/assets/',
-  stats: {
-    colors: true,
-  },
-  historyApiFallback: true,
-}));
-
-app.use(webpackHotMiddleware(compiler, {
-  log: console.log,
-  path: '/__webpack_hmr',
-  heartbeat: 10 * 1000,
-}));
 
 // universal routing and rendering
 app.get('*', (req, res) => {

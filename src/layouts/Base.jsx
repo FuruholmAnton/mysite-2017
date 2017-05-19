@@ -13,7 +13,7 @@ import vent from '../core/eventEmitter.js';
 export default class BaseLayout extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log(props);
+		// console.log(props);
 	}
 
 	componentDidMount() {
@@ -21,7 +21,6 @@ export default class BaseLayout extends React.Component {
 	}
 
 	render() {
-		console.log();
 		const slug = this.props.routes.filter((n) => { return n.slug; }).pop().slug;
 		let content = (
 			<div className={`base page-${slug}`}>

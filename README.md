@@ -1,13 +1,7 @@
-# myHub
-Personal project to learn ReactJS
+# My site
+Personal site with ReactJS
 
 ## Install
-
-This project requires NodeJS, Yarn and Firebase.
-
-https://nodejs.org/en/ <br>
-https://yarnpkg.com/en/docs/install <br>
-https://firebase.google.com/
 
 run following in root folder:
 

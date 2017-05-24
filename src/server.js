@@ -4,7 +4,7 @@ let Webpack_isomorphic_tools = require('webpack-isomorphic-tools');
 let project_base_path = require('path').resolve(__dirname, './');
 
 // this global variable will be used later in express middleware
-global.webpack_isomorphic_tools = new Webpack_isomorphic_tools(require('../webpack-isomorphic-tools-configuration'))
+global.webpack_isomorphic_tools = new Webpack_isomorphic_tools(require('../tools/webpack-isomorphic-tools-configuration'))
 // initializes a server-side instance of webpack-isomorphic-tools
 // (the first parameter is the base path for your project
 //  and is equal to the "context" parameter of you Webpack configuration)

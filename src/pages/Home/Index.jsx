@@ -11,7 +11,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <div className="container" style={{ backgroundImage: `url(${image})` }}>
+      <div className="container" /* style={{ backgroundImage: `url(${image})` }}*/>
         <h1 className="home_heading">Furuholm</h1>
         <div className="home_navigation">
           <button>Projects</button>

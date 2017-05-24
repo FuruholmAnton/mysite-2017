@@ -19,6 +19,6 @@ global.webpack_isomorphic_tools = new Webpack_isomorphic_tools(require('../tools
   //  in order for the whole thing to work)
   require('babel-register');
 
-    require('./server.babel');
+  require('./server.babel');
 });
 

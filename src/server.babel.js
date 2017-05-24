@@ -10,6 +10,9 @@ import routes from './routes';
 import { getData, updateData } from './server/functions';
 import bodyParser from 'body-parser';
 
+/* Prettify's errors */
+require('pretty-error').start();
+
 /* For Development */
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');

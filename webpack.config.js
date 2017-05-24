@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 
-const loaders = require('./tools/webpack.loaders.js').loaders;
+require('babel-polyfill');
 
 const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
@@ -27,8 +27,6 @@ const extractSass = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === 'development',
   allChunks: true,
 });
-
-require('babel-polyfill');
 
 
 const config = {

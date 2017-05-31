@@ -5,10 +5,6 @@ import BaseLayout from './layouts/Base';
 import HomePage from 'Pages/Home';
 import Contact from 'Pages/Contact';
 import PageNotFound from 'Pages/NotFound';
-// import NotesPage from 'Pages/Notes';
-// import SingleNotePage from 'Pages/SingleNote';
-// import LoginPage from 'Pages/Login';
-// import RegisterPage from 'Pages/Register';
 
 import { onRouteChange } from './core/functions';
 

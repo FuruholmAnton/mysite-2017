@@ -356,7 +356,6 @@ module.exports = {
       Images: path.resolve(__dirname, '../src/assets/images'),
     },
     extensions: ['.js', '.jsx'],
-    // unsafeCache: true,
   },
   devtool: 'source-map',
   module: {

@@ -14,11 +14,11 @@ import bodyParser from 'body-parser';
 require('pretty-error').start();
 
 /* For Development */
-// const webpackDevMiddleware = require('webpack-dev-middleware');
-// const webpackHotMiddleware = require('webpack-hot-middleware');
-// let webpack = require('webpack');
-// let webpackConfig = require('../tools/webpack.config.js');
-// let compiler = webpack(webpackConfig);
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+let webpack = require('webpack');
+let webpackConfig = require('../tools/webpack.config.js');
+let compiler = webpack(webpackConfig);
 
 import NotFoundPage from './pages/NotFound.jsx';
 
@@ -35,21 +35,21 @@ app.use(Express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 
 /* For Development */
-// app.use(webpackDevMiddleware(compiler, {
-//   hot: true,
-//   filename: 'bundle.js',
-//   publicPath: '/assets/',
-//   stats: {
-//     colors: true,
-//   },
-//   historyApiFallback: true,
-// }));
+app.use(webpackDevMiddleware(compiler, {
+  hot: true,
+  filename: 'bundle.js',
+  publicPath: '/assets/',
+  stats: {
+    colors: true,
+  },
+  historyApiFallback: true,
+}));
 
-// app.use(webpackHotMiddleware(compiler, {
-//   log: console.log,
-//   path: '/__webpack_hmr',
-//   heartbeat: 10 * 1000,
-// }));
+app.use(webpackHotMiddleware(compiler, {
+  log: console.log,
+  path: '/__webpack_hmr',
+  heartbeat: 10 * 1000,
+}));
 
 
 // universal routing and rendering

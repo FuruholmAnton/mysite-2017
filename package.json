@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "watch": "NODE_ENV=development webpack --watch",
-    "start": "babel-node tools/run start",
+    "start": "babel-node src/server.js",
     "build": "NODE_ENV=production webpack -p --config ./tools/webpack-production.config.js"
   },
   "babel": {

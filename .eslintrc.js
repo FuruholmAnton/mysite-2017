@@ -1,14 +1,19 @@
 module.exports = {
-    "root": true,
-    "extends": ["google", "plugin:react/recommended"],
-    "parserOptions": {
+    root: true,
+    parser: 'babel-eslint',
+    extends: [
+      "google",
+      "plugin:react/recommended",
+      'plugin:css-modules/recommended',
+    ],
+    parserOptions: {
         "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         }
     },
-    "rules": {
+    rules: {
         "semi": 2,
         "require-jsdoc": 0,
         "valid-jsdoc": [1, {
@@ -22,12 +27,17 @@ module.exports = {
         "object-curly-spacing": [2, "always"],
         "brace-style": 0
     },
-    "env": {
+    env: {
         "browser": true,
-        "node": true,
-        "es6": true
+        // "node": true,
+        // "es6": true
     },
-    "plugins": [
-        "react"
-    ]
+    plugins: [
+        "react",
+        'css-modules',
+    ],
+
+    globals: {
+      __DEV__: true,
+    },
 };

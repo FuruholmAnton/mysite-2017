@@ -14,11 +14,11 @@ import bodyParser from 'body-parser';
 require('pretty-error').start();
 
 /* For Development */
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-let webpack = require('webpack');
-let webpackConfig = require('../webpack.config.js');
-let compiler = webpack(webpackConfig);
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackHotMiddleware = require('webpack-hot-middleware');
+// let webpack = require('webpack');
+// let webpackConfig = require('../tools/webpack.config.js');
+// let compiler = webpack(webpackConfig);
 
 import NotFoundPage from './pages/NotFound.jsx';
 
@@ -35,49 +35,22 @@ app.use(Express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 
 /* For Development */
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  filename: 'bundle.js',
-  publicPath: '/assets/',
-  stats: {
-    colors: true,
-  },
-  historyApiFallback: true,
-}));
+// app.use(webpackDevMiddleware(compiler, {
+//   hot: true,
+//   filename: 'bundle.js',
+//   publicPath: '/assets/',
+//   stats: {
+//     colors: true,
+//   },
+//   historyApiFallback: true,
+// }));
 
-app.use(webpackHotMiddleware(compiler, {
-  log: console.log,
-  path: '/__webpack_hmr',
-  heartbeat: 10 * 1000,
-}));
+// app.use(webpackHotMiddleware(compiler, {
+//   log: console.log,
+//   path: '/__webpack_hmr',
+//   heartbeat: 10 * 1000,
+// }));
 
-app.post('/ajax', (req, res) => {
-  let body = req.body;
-  let output = {};
-  console.log(req.body);
-
-
-  if (body != null && body.function != null && typeof body.function === 'string') {
-    if (body.function === 'getData') {
-      console.log('AJAX! getData');
-      getData('data/firebase.json').then((response) => {
-        output = {
-          data: response,
-        };
-        res.json(output);
-      });
-    } else if (body.function === 'updateData') {
-      console.log('AJAX! updateData');
-      output = {
-        res: 'From server',
-      };
-    } else {
-      console.log('AJAX! Something went wrong');
-    }
-  } else {
-    console.log('AJAX! Something went wrong');
-  }
-});
 
 // universal routing and rendering
 app.get('*', (req, res) => {

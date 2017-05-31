@@ -48,7 +48,8 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(js|jsx)$/,
         include: [
           path.resolve(__dirname, '../src'),
@@ -85,10 +86,7 @@ module.exports = {
           ],
         }),
       },
-      {
-        test: webpackIsomorphicToolsPlugin.regular_expression('images'),
-        loader: 'url-loader?limit=10240', // any image below or equal to 10K will be converted to inline base64 instead
-      },
+      // TODO: Add loader for images
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         exclude: /(node_modules|bower_components)/,
@@ -111,7 +109,6 @@ module.exports = {
     extractSass,
     webpackIsomorphicToolsPlugin,
 
-    // new webpack.optimize.OccurenceOrderPlugin(), // webpack 1.x
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
 

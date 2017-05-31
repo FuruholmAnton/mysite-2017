@@ -3,6 +3,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import vent from '../core/eventEmitter.js';
 
+
+List.propTypes = {
+	list: React.PropTypes.array.isRequired,
+	closeMenuOnClick: React.PropTypes.bool,
+	expandable: React.PropTypes.bool,
+};
+
 export default class List extends React.Component {
 	constructor(props) {
 		super(props);
@@ -60,9 +67,3 @@ export default class List extends React.Component {
 		);
 	}
 }
-
-List.propTypes = {
-	list: React.PropTypes.array.isRequired,
-	closeMenuOnClick: React.PropTypes.bool,
-	expandable: React.PropTypes.bool,
-};

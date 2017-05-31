@@ -1,12 +1,18 @@
 import React from 'react';
 import Header from './Header.jsx';
-import Shadow from '../components/Shadow.jsx';
-import vent from '../core/eventEmitter.js';
+import Shadow from 'Components/Shadow.jsx';
+import vent from 'Core/eventEmitter.js';
+
+
+BaseLayout.propTypes = {
+	routes: React.PropTypes.array,
+};
+
 
 /**
+ * The base layout
  *
- *
- * @export The base layout
+ * @export BaseLayout
  * @class BaseLayout
  * @extends {React.Component}
  */
@@ -26,7 +32,6 @@ export default class BaseLayout extends React.Component {
 			<div className={`base page-${slug}`}>
 				<Header />
 
-
 				<div className="content">
 						{this.props.children}
 					<Shadow />
@@ -43,7 +48,3 @@ export default class BaseLayout extends React.Component {
 		return content;
 	}
 }
-
-BaseLayout.propTypes = {
-	routes: React.PropTypes.array,
-};

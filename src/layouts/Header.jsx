@@ -5,6 +5,12 @@ import { Link } from 'react-router';
 import { LeftArrow } from 'SVG';
 import Menu from 'Components/Menu';
 
+
+Header.propTypes = {
+  title: React.PropTypes.string,
+};
+
+
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +43,3 @@ export default class Header extends React.Component {
     );
   }
 }
-
-Header.propTypes = {
-  title: React.PropTypes.string,
-};

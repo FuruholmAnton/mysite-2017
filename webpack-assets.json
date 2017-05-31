@@ -4,6 +4,6 @@
   },
   "styles": {},
   "assets": {
-    "./assets/images/home.jpg": "732b67016ae4a1903897cf4256865029.jpg"
+    "./src/assets/images/home.jpg": "732b67016ae4a1903897cf4256865029.jpg"
   }
 }

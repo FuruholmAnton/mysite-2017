@@ -4,8 +4,8 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-import AssetsPlugin from 'assets-webpack-plugin';
-import pkg from '../package.json';
+const AssetsPlugin = require('assets-webpack-plugin');
+const pkg = require('./package.json');
 
 require('babel-polyfill');
 
@@ -17,14 +17,14 @@ const __DEV__ = process.env.NODE_ENV === 'development';
 
 const extractSass = new ExtractTextPlugin({
   // filename: "public/[name].[contenthash].css",
-  filename: path.resolve(__dirname, '../src/static/css/style.css'),
+  filename: path.resolve(__dirname, 'src/static/css/style.css'),
   disable: process.env.NODE_ENV === 'development',
   allChunks: true,
 });
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../src'),
+  context: path.resolve(__dirname, 'src'),
   entry: {
     main: [
       'babel-polyfill',
@@ -32,17 +32,17 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, '../src/static/'),
+    path: path.resolve(__dirname, 'src/static/'),
     filename: 'bundle.js',
   },
   resolve: {
     alias: {
-      Components: path.resolve(__dirname, '../src/components'),
-      Pages: path.resolve(__dirname, '../src/pages'),
-      Layouts: path.resolve(__dirname, '../src/layouts'),
-      Core: path.resolve(__dirname, '../src/core'),
-      SVG: path.resolve(__dirname, '../src/assets/svg'),
-      Images: path.resolve(__dirname, '../src/assets/images'),
+      Components: path.resolve(__dirname, 'src/components'),
+      Pages: path.resolve(__dirname, 'src/pages'),
+      Layouts: path.resolve(__dirname, 'src/layouts'),
+      Core: path.resolve(__dirname, 'src/core'),
+      SVG: path.resolve(__dirname, 'src/assets/svg'),
+      Images: path.resolve(__dirname, 'src/assets/images'),
     },
     extensions: ['.js', '.jsx'],
   },
@@ -52,12 +52,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: [
-          path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, 'src'),
         ],
         exclude: [
-          path.resolve(__dirname, '../src/static'),
-          path.resolve(__dirname, '../src/views'),
-          path.resolve(__dirname, '../src/main.js'),
+          path.resolve(__dirname, 'src/static'),
+          path.resolve(__dirname, 'src/views'),
+          path.resolve(__dirname, 'src/main.js'),
         ],
         loader: 'babel-loader',
         options: {
@@ -67,8 +67,8 @@ module.exports = {
       {
         test: /\.scss$/,
         include: [
-          path.resolve(__dirname, '../src/assets/scss'),
-          path.resolve(__dirname, '../src/pages'),
+          path.resolve(__dirname, 'src/assets/scss'),
+          path.resolve(__dirname, 'src/pages'),
         ],
         loader: extractSass.extract({
           fallback: 'style-loader',
@@ -107,7 +107,6 @@ module.exports = {
   plugins: [
 
     extractSass,
-    webpackIsomorphicToolsPlugin,
 
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

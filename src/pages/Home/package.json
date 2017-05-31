@@ -1,0 +1,5 @@
+{
+    "name": "home",
+    "version": "0",
+    "main": "./Home.jsx"
+}

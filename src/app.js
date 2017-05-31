@@ -6,6 +6,10 @@ import FastClick from 'fastclick';
 
 import 'wicg-focus-ring';
 
+ReactDOM.render((
+  <AppRoutes/>
+), document.getElementById('root'));
+
 /* For development */
 if (module.hot) {
   module.hot.accept();
@@ -20,3 +24,4 @@ if (window.history && 'scrollRestoration' in window.history) {
 
 // Make taps on links and buttons work fast on mobiles
 FastClick.attach(document.body);
+

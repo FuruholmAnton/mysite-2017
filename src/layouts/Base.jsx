@@ -1,12 +1,7 @@
 import React from 'react';
-import Header from './Header.jsx';
-import Shadow from 'Components/Shadow.jsx';
-import vent from 'Core/eventEmitter.js';
-
-
-BaseLayout.propTypes = {
-	routes: React.PropTypes.array,
-};
+// import Header from './Header.jsx';
+// import Shadow from 'Components/Shadow.jsx';
+// import vent from 'Core/eventEmitter.js';
 
 
 /**
@@ -30,11 +25,9 @@ export default class BaseLayout extends React.Component {
 		const slug = this.props.routes.filter((n) => { return n.slug; }).pop().slug;
 		let content = (
 			<div className={`base page-${slug}`}>
-				<Header />
 
 				<div className="content">
 						{this.props.children}
-					<Shadow />
 				</div>
 
 				<div className="notification">
@@ -48,3 +41,8 @@ export default class BaseLayout extends React.Component {
 		return content;
 	}
 }
+
+
+// BaseLayout.propTypes = {
+// 	routes: React.PropTypes.array,
+// };

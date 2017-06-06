@@ -12,7 +12,25 @@ const PORT = process.env.PORT || "8888";
 
 loaders.push({
   test: /\.scss$/,
-  loaders: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass-loader'],
+  loaders: [
+		'style-loader',
+		{
+			loader: 'css-loader',
+			options: {
+				importLoaders: 1,
+				modules: true,
+				localIdentName: '[name]__[local]___[hash:base64:5]',
+			}
+		},
+		'postcss-loader',
+		'sass-loader'
+	],
+  exclude: ['node_modules']
+});
+
+loaders.push({
+  test: /\.sass$/,
+  loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader', 'sass-loader'],
   exclude: ['node_modules']
 });
 

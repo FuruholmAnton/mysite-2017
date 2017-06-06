@@ -10,7 +10,13 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 module.exports = {
-  plugins: [
-    require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
-  ]
+	parser: 'postcss-scss',
+  plugins: {
+		'postcss-import': {},
+    'cssnext': {},
+    'autoprefixer': {
+			browsers: AUTOPREFIXER_BROWSERS,
+		},
+    'cssnano': {},
+	}
 }

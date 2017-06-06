@@ -11,13 +11,19 @@ loaders.push({
   exclude: ['node_modules']
 });
 
+loaders.push({
+  test: /\.sass$/,
+  loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader', 'sass-loader'],
+  exclude: ['node_modules']
+});
+
 module.exports = {
   entry: [
     './src/index.jsx',
-    './styles/index.scss'
+    './styles/index.sass'
   ],
   output: {
-    publicPath: './',		
+    publicPath: './',
     path: path.join(__dirname, 'public'),
     filename: '[chunkhash].js'
   },

@@ -6,7 +6,7 @@ module.exports = [
   },
   {
     test: /\.css$/,
-    loaders: ['style-loader', 'css-loader?importLoaders=1'],
+    loaders: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'],
     exclude: ['node_modules']
   },
   {

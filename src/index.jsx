@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { AppContainer } from 'react-hot-loader';
-import Root from './App';
+import App from './App';
 
 
 ReactDOM.render(
   <AppContainer>
-    <Root/>
+    <App />
   </AppContainer>,
   document.getElementById('app')
 );
@@ -24,3 +24,18 @@ if (module.hot) {
     );
   });
 }
+
+/*const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app')
+  )
+}
+
+render(App)
+
+if (module.hot) {
+  module.hot.accept('./App', () => { render(App) })
+}*/

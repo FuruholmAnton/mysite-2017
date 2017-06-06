@@ -2,38 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { AppContainer } from 'react-hot-loader';
-import Root from './AppRoutes';
+import Root from './App';
 
-const render = (Component) => {
-  ReactDOM.render(
-		<AppContainer>
-      <Component />
-  	</AppContainer>,
-    document.getElementById('app')
-  );
-};
 
-render(Root);
+ReactDOM.render(
+  <AppContainer>
+    <Root/>
+  </AppContainer>,
+  document.getElementById('app')
+);
 
-module.hot.accept('./AppRoutes', () => {
-  render(Root)
-});
-
-/*render(
-    <AppContainer>
-        <Root/>
-    </AppContainer>,
-    document.getElementById('app')
-);*/
-
-/*if (module.hot) {
-    module.hot.accept('./AppRoutes', () => {
-        const NewRoot = require('./AppRoutes').default;
-        render(
-            <AppContainer>
-                <NewRoot />
-            </AppContainer>,
-            document.getElementById('app')
-        );
-    });
-}*/
+// Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default;
+    ReactDOM.render(
+      <AppContainer>
+        <NextApp/>
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  });
+}

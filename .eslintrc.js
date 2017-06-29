@@ -1,4 +1,5 @@
 module.exports = {
+<<<<<<< HEAD
     root: true,
     parser: 'babel-eslint',
     extends: [
@@ -7,6 +8,15 @@ module.exports = {
       'plugin:css-modules/recommended',
     ],
     parserOptions: {
+=======
+    "root": true,
+    "extends": [
+        "google", 
+        "plugin:react/recommended",
+        'plugin:css-modules/recommended',
+    ],
+    "parserOptions": {
+>>>>>>> Work
         "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
@@ -27,7 +37,14 @@ module.exports = {
         "object-curly-spacing": [2, "always"],
         "brace-style": 0
     },
+<<<<<<< HEAD
     env: {
+=======
+    globals: {
+        __DEV__: true,
+    },
+    "env": {
+>>>>>>> Work
         "browser": true,
         // "node": true,
         // "es6": true

@@ -1,0 +1,28 @@
+/* Component: Home
+============================================================================ */
+
+// TRY NOT TO USE THE PAGES FOLDER (IF POSSIBLE) !!!!!!!!
+.page-home {
+    .container {
+        background-image: url('/assets/images/home.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+
+.home_heading {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.home_navigation {
+        align-self: flex-end;
+}

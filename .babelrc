@@ -1,4 +1,19 @@
 {
+<<<<<<< HEAD
   "presets": ["es2015", "react"],
   "plugins": ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'react-hot-loader/babel']
 }
+=======
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-class-properties",
+    "transform-async-to-generator",
+    "react-hot-loader/babel"
+  ]
+}
+>>>>>>> Work

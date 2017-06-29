@@ -4,10 +4,16 @@
   "description": "My site 2017",
   "main": "''",
   "scripts": {
+<<<<<<< HEAD
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
+=======
+    "watch": "NODE_ENV=development webpack --watch",
+    "start": "NODE_ENV=development babel-node src/server.js",
+    "build": "NODE_ENV=production webpack -p --config ./tools/webpack-production.config.js"
+>>>>>>> Work
   },
   "repository": {
     "type": "git",
@@ -29,6 +35,7 @@
     "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^6.0.4",
@@ -69,5 +76,44 @@
     "webpack-cleanup-plugin": "^0.4.2",
     "webpack-dashboard": "^0.3.0",
     "webpack-dev-server": "^2.4.1"
+=======
+    "babel-loader": "6.2.x",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "css-loader": "^0.28.0",
+    "eslint": "3.19.0",
+    "eslint-config-google": "0.7.1",
+    "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-file-cache": "^0.0.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-uglify": "^2.1.2",
+    "http-server": "0.9.x",
+    "nodemon": "^1.11.0",
+    "react-hot-loader": "next",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.3",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-dev-server": "^2.4.2",
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-stream": "^3.2.0"
+  },
+  "_moduleAliases": {
+    "Components": "src/components",
+    "Pages": "src/pages",
+    "SVG": "src/assets/svg",
+    "Core": "src/core",
+    "Layouts": "src/layouts",
+    "Images": "src/assets/images"
+>>>>>>> Work
   }
 }

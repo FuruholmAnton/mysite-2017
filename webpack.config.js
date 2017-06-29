@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict";
 require('babel-polyfill');
 var webpack = require('webpack');
@@ -6,6 +7,18 @@ var loaders = require('./webpack.loaders');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+=======
+const webpack = require('webpack');
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// require('babel-polyfill');
+import pkg from './package.json';
+
+const isDebug = !process.argv.includes('--release');
+const isVerbose = process.argv.includes('--verbose');
+const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('--analyse');
+>>>>>>> Work
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
@@ -28,6 +41,7 @@ loaders.push({
   exclude: ['node_modules']
 });
 
+<<<<<<< HEAD
 loaders.push({
   test: /\.sass$/,
   loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader', 'sass-loader'],
@@ -45,11 +59,80 @@ module.exports = {
     publicPath: '/',
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
+=======
+const loaders = [
+  {
+    test: /\.(js|jsx)$/,
+    include: [
+      path.resolve(__dirname, 'src'),
+    ],
+    exclude: [
+      path.resolve(__dirname, 'src/static'),
+      path.resolve(__dirname, 'src/views'),
+      path.resolve(__dirname, 'src/server.js'),
+      path.resolve(__dirname, 'src/server.babel.js'),
+      path.resolve(__dirname, 'src/server*'),
+      path.resolve(__dirname, 'src/main.js'),
+    ],
+    loader: 'babel-loader',
+    query: {
+      // https://github.com/babel/babel-loader#options
+      cacheDirectory: isDebug,
+
+      presets: ['es2015', 'react'],
+    },
+  },
+  {
+    test: /\.scss$/,
+    include: [
+      path.resolve(__dirname, 'src/assets/scss'),
+      path.resolve(__dirname, 'src/pages'),
+    ],
+    loader: extractSass.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }),
+  },
+  {
+      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+      exclude: /(node_modules|bower_components)/,
+      loader: 'file',
+  },
+  {
+      test: /\.(woff|woff2)$/,
+      exclude: /(node_modules|bower_components)/,
+      loader: 'url?prefix=font/&limit=5000',
+  },
+  {
+      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+      exclude: /(node_modules|bower_components)/,
+      loader: 'url?limit=10000&mimetype=application/octet-stream',
+  },
+  {
+      test: webpackIsomorphicToolsPlugin.regular_expression('images'),
+      loader: 'url-loader?limit=10240', // any image below or equal to 10K will be converted to inline base64 instead
+  },
+];
+
+
+module.exports = {
+  context: path.resolve(__dirname, 'src'),
+  entry: {
+    main: [
+      /* 'babel-polyfill', */
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      'react-hot-loader/patch',
+      './app-client.js',
+      ],
+  },
+  output: {
+    path: path.resolve(__dirname, './src/static/'),
+    filename: 'bundle.js',
+    publicPath: '/assets/',
+>>>>>>> Work
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   module: {
+<<<<<<< HEAD
     loaders
   },
   devServer: {
@@ -67,6 +150,9 @@ module.exports = {
     quiet: false,
     port: PORT,
     host: HOST
+=======
+    rules: loaders,
+>>>>>>> Work
   },
   plugins: [
 		new webpack.NamedModulesPlugin(),

@@ -1,35 +1,76 @@
 var webpack = require('webpack');
 var path = require('path');
 var loaders = require('./webpack.loaders');
+var common = require('./webpack.common');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OfflinePlugin = require('offline-plugin');
+var PreloadWebpackPlugin = require('preload-webpack-plugin');
 
+/* Extract SCSS/SASS/CSS to a separate file */
+const extractSCSS = new ExtractTextPlugin({filename: '[name]-[contenthash].css', allChunks: true});
+
+/* CSS modules */
 loaders.push({
-  test: /\.scss$/,
-  loader: ExtractTextPlugin.extract({fallback: 'style-loader', use : 'css-loader?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=expanded'}),
+  test: /\.(scss|css)$/,
+  use: extractSCSS.extract({
+		fallback: 'style-loader',
+		use : [
+			{
+				loader: 'css-loader',
+				options: {
+					sourceMap: true,
+					modules: true, // Adds module name to the class
+					localIdentName: '[name]__[local]___[hash:base64:5]',
+				}
+			},
+			'postcss-loader',
+			{
+				loader: 'sass-loader',
+				options: {
+					outputStyle: 'expanded',
+				}
+			}
+		]}),
   exclude: ['node_modules']
 });
 
+/* Global styles */
 loaders.push({
-  test: /\.sass$/,
-  loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader', 'sass-loader'],
+  test: /\.(sass)$/,
+  use: extractSCSS.extract({
+		fallback: 'style-loader',
+		use : [
+			{
+				loader: 'css-loader',
+				options: {
+					sourceMap: true,
+					localIdentName: '[name]__[local]___[hash:base64:5]',
+				}
+			},
+			'postcss-loader',
+			{
+				loader: 'sass-loader',
+				options: {
+					outputStyle: 'expanded',
+				}
+			}
+		]}),
   exclude: ['node_modules']
 });
 
-module.exports = {
+var config = {
   entry: [
+		'babel-polyfill',
     './src/index.jsx',
-    './styles/index.sass'
   ],
   output: {
     publicPath: './',
     path: path.join(__dirname, 'public'),
-    filename: '[chunkhash].js'
+    filename: 'app-[chunkhash].js'
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
+	resolve: common.resolve,
   module: {
     loaders
   },
@@ -49,16 +90,25 @@ module.exports = {
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new ExtractTextPlugin({
-      filename: 'style.css',
-      allChunks: true
-    }),
+    // new ExtractTextPlugin({
+    //   filename: [name]__[local]___[hash:base64:5],
+    //   allChunks: true
+    // }),
+		extractSCSS,
     new HtmlWebpackPlugin({
       template: './src/template.html',
       files: {
         css: ['style.css'],
         js: ['bundle.js'],
       }
-    })
+    }),
+  	new PreloadWebpackPlugin({
+			rel: 'preload',
+			as: 'script',
+			include: 'asyncChunks'
+		}),
+		new OfflinePlugin()
   ]
 };
+
+module.exports = config;

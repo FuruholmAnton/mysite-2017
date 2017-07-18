@@ -1,15 +1,23 @@
-/* Base: HTML Elements
+/* Base: Base Styling
 ============================================================================ */
 
 html,
 body,
 #main,
+#app,
+.full,
+.content,
+.container,
+.page-transition {
+    min-height: 100%;
+}
+
 .container {
-    height: 100%;
+    box-shadow: 0 10px 60px rgba(#000, 0.2);
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 button {
@@ -17,3 +25,4 @@ button {
     border: none;
     padding: 0;
 }
+

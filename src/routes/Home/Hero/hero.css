@@ -1,0 +1,16 @@
+.wrapper {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ddd;
+
+    
+}
+
+.heading {
+    font-size: 4rem;
+    text-align: center;
+    margin: 1em;
+    color: #222;
+}

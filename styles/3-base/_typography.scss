@@ -18,6 +18,23 @@ h6 {
     font-weight: 600;
 }
 
+h2 {
+    margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #555;
+    padding-bottom: 0.2em;
+    font-family: font(heading);
+
+    @media (min-width: 400px) {
+        font-size: 3rem;
+    }
+
+    @media (min-width: 600px) {
+        font-size: 4rem;
+    }
+}
+
 p {
     margin: 0;
     line-height: 1.4;

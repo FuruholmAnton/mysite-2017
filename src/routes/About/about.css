@@ -1,3 +1,8 @@
+
+.wrapper {
+    height: 100%;
+}
+
 .heading {
     color: #ccc;
     font-size: 2rem;

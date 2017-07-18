@@ -10,7 +10,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className={s.wrapper + ' container'}>
         <h1 className={s.heading}>About me</h1>
       </div>
     );

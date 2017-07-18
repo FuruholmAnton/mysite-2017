@@ -15,6 +15,8 @@ export default class Projects extends React.Component {
 				<SectionHeading></SectionHeading>
 
 				<Project></Project>
+				<Project></Project>
+				<Project></Project>
 
 			</section>
 		);

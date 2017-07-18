@@ -3,21 +3,32 @@
 
 html,
 body,
-#main,
-#app,
-.full,
-.content,
-.container,
-.page-transition {
-    min-height: 100%;
+// #main,
+// #app,
+// .full,
+// .content,
+// .container 
+{
+    height: 100%;
 }
 
 .container {
-    box-shadow: 0 10px 60px rgba(#000, 0.2);
+    // box-shadow: 0 10px 60px rgba(#000, 0.2);
+    background: #fff;
+}
+
+.content {
+  position: relative;
+}
+
+.page-transition {
+  position: relative;
+  height: 100%;
 }
 
 body {
     overflow-x: hidden;
+    
 }
 
 button {

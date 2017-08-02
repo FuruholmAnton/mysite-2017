@@ -3176,6 +3176,10 @@ log-symbols@^1.0.2:
   dependencies:
     chalk "^1.0.0"
 
+logrocket@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-0.5.2.tgz#915345d726ac24047747415b748d552a2fa05c45"
+
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"

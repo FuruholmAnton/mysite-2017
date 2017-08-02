@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
+
+/* Tracker */
+import LogRocket from 'logrocket';
+LogRocket.init('xqfdr2/portfolio');
+
 /* Global Styles */
 import '../styles/index.sass';
 /* HMR */

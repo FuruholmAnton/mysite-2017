@@ -1,16 +1,22 @@
+@import '../../../styles/helpers.scss';
+
 .header {
-    background: #fff;
-    box-shadow: 0 1px 2px rgba(#000, 0.2);
+    // background: #fff;
+    // box-shadow: 0 1px 2px rgba(#000, 0.2);
     height: 60px;
     width: 100%;
-    position: relative;
+    position: fixed;
     z-index: 600;
+    display: flex;
 }
 
 .nav {
     display: flex;
     height: 100%;
     align-items: center;
+    margin-left: auto;
+    // margin-top: vw-column(1);
+    // margin-right: vw-column(1);
 }
 
 .item {

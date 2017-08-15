@@ -17,9 +17,9 @@ module.exports = {
 		'postcss-media-minmax': {},
 		'postcss-import': {},
 		'postcss-cssnext': {},
-		'autoprefixer': {
-			browsers: AUTOPREFIXER_BROWSERS,
-		},
+		// 'autoprefixer': {
+		// 	browsers: AUTOPREFIXER_BROWSERS,
+		// },
 		// 'cssnano': {},
 	}
 }

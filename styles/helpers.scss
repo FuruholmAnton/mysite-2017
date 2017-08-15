@@ -1,11 +1,6 @@
 
 /*  CONFIG
 //============================================================================ */
-@import '0-vendor/normalize'
-
-
-/*  CONFIG
-//============================================================================ */
 @import "1-init/variables";
 @import "1-init/font-face";
 
@@ -17,6 +12,7 @@
 @import "2-utility/functions/font";
 @import "2-utility/functions/ratio";
 @import "2-utility/functions/strip-unit";
+@import "2-utility/functions/vw-column";
 // Animations
 @import "2-utility/animations/hacks";
 @import "2-utility/animations/bounce";
@@ -29,14 +25,3 @@
 // Helpers
 @import "2-utility/helpers";
 
-
-
-/*  BASE
-//============================================================================ */
-@import "3-base/reset";
-@import "3-base/base";
-@import "3-base/globals";
-@import "3-base/typography";
-
-// @import 'main';
-// @import 'common/button'

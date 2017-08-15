@@ -20,7 +20,7 @@ loaders.push({
 		{
 			loader: 'css-loader',
 			options: {
-				importLoaders: 1,
+				importLoaders: 2,
 				modules: true,
 				localIdentName: '[name]__[local]___[hash:base64:5]',
 			}
@@ -33,7 +33,7 @@ loaders.push({
 
 loaders.push({
 	test: /\.sass$/,
-	loaders: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader', 'sass-loader'],
+	loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
 	exclude: ['node_modules']
 });
 

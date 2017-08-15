@@ -2,9 +2,14 @@
     margin-top: 0;
     box-shadow: none;
     max-height: inherit;
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 0;
     border-bottom: 1px solid #eee;
     width: 100%;
+}
+
+.project {
+	display: flex;
+	padding: 2rem 0;
 }
 
 .content {
@@ -14,6 +19,8 @@
     padding: .6em 1rem 1.5rem;
     text-align: left;
     transition: all 1s ease-in-out;
+	display: flex;
+	flex-wrap: wrap;
     // will-change: opacity, transform;
 }
 
@@ -21,7 +28,7 @@
 .image {
     display: block;
 	overflow: hidden;
-	width: 100%;
+	width: 200px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;
@@ -34,6 +41,7 @@
 	font-size: 1.5rem;
 	font-weight: 300;
 	padding-bottom: 6px;
+	width: 100%;
 
 	@media screen and (min-width: 600px) {
 		margin-top: -4px;
@@ -69,14 +77,13 @@
 
     @media screen and (min-width: 600px){
         font-size: 0.9em;
-		float: right;
 		display: inline-block;
 		color: #666;
+		margin-left: auto;
     }
 
 
 	&:hover {
-		color: #fff;
 		// border-color: $color-secondary;
 		transition: all 0.1s ease-in;
 		// background-color: $color-secondary;

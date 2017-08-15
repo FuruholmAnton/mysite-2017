@@ -12,6 +12,8 @@ import { onRouteChange } from './core/functions';
 import Layout from './Layout';
 
 
+
+
 export default () => {
 	return (
 		<Router>

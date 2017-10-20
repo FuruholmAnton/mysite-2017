@@ -8,8 +8,6 @@ export default class Hero extends React.Component {
 		super(props);
 		this.handleScroll = this.handleScroll.bind(this);
 
-
-
 		this.state = {};
 	}
 
